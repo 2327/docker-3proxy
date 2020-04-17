@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  3proxy:
+    image: 3proxy:alpine
+    container_name: 3proxy
+    restart: always
+    environment:
+      - HTTP_PORT=8080
+      - SOCKS_PORT=1080
+    volumes:
+       - ./passwd:/etc/3proxy/passwd:ro
+    ports:
+      - "28080:1080"
+      - "38080:8080"
+
